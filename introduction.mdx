@@ -1,6 +1,6 @@
 ---
-title: Introduction_TEST
-description: 'Welcome to the home of your new documentation'
+title: RevenueCat API v1 (1.0)
+description: 'Welcome to RevenueCat'
 ---
 
 <img
@@ -14,58 +14,27 @@ description: 'Welcome to the home of your new documentation'
   alt="Hero Dark"
 />
 
-## Setting up
+## About RevenueCat’s REST API
 
-The first step to world-class documentation is setting up your editing environments.
+RevenueCat provides a REST API for developers to perform customer and transaction related actions from their own server.
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
+Most of this API is geared toward client usage via RevenueCat’s SDK, but there are various endpoints that can be used for refunding purchases, granting promotional entitlements, and other sensitive actions that can only be done via a Secret API key from your server.
 
-## Make it yours
 
-Update your docs to your brand and add valuable content for the best user conversion.
+## Should I use this REST API or the RevenueCat SDK?
 
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+If you’re adding subscriptions or other in-app purchases to your app for the first time or if you don’t have a backend that stores your Customers' receipts, you’re probably looking to implement the RevenueCat SDK.
+
+If you want to start migrating your existing users to RevenueCat and you have your Customers' receipts stored on your own server, or you want to check subscription status of your users from your own server, the REST API is a great solution.
+
+
+## Authentication
+
+Authentication for the RevenueCat REST API is achieved by setting the Authorization header with a valid API key. You'll find two types of API keys in your RevenueCat dashboard: public and secret.
+
+Certain endpoints require secret keys, which should be kept out of any publicly accessible areas such as GitHub, client-side code, and so forth. See our Authentication guide for more information.
+
+```
+print('Authorization: Bearer YOUR_REVENUECAT_API_KEY')
+```
+
